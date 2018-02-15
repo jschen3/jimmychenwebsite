@@ -1,0 +1,15 @@
+{
+  "name": "powervouch",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://gecgithub01.walmart.com/services/powerVouch.git"
+  },
+  "author": "",
+  "license": "ISC"
+}
