@@ -11,5 +11,8 @@
     "url": "https://gecgithub01.walmart.com/services/powerVouch.git"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.2"
+  }
 }
