@@ -7,7 +7,7 @@ var mongoose = require('mongoose'),
   Schema = mongoose.Schema;
 
 /**
- * Bucket List Schema
+ * Item List Schema
  */
 var ItemSchema = new Schema({
   id: {
@@ -27,7 +27,6 @@ var ItemSchema = new Schema({
   },
   name: {
     type: String,
-    default: '',
     trim: true
   },
   description: {
@@ -60,4 +59,4 @@ var ItemSchema = new Schema({
   }
 });
 
-mongoose.model('Item', ItemSchema);
+mongoose.model('ItemSchema', ItemSchema);
