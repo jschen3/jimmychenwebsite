@@ -9,7 +9,7 @@ var mongoose = require('mongoose'),
     ItemSchema = mongoose.model('ItemSchema');
 
 /**
- * Create an Bucket List
+ * Create/Update an Item
  */
 exports.create = function(req, res) {
     console.log("Inside item create");
@@ -18,14 +18,23 @@ exports.create = function(req, res) {
         var item = new ItemSchema(req.body);
 
         console.log(item);
-        item.save(function(err) {
-            console.log("inside save item ");
-            if (err) {
-                console.log(err);
-            } else {
-                res.jsonp(item);
+        var query = {'id':req.body.id};
+        console.log(req.body)
+        ItemSchema.findOneAndUpdate(query,
+            // req.body
+            {
+                $setOnInsert:req.body
             }
-        });
+            , {
+                upsert: true,
+                'new': true,
+                runValidators: true,
+                setDefaultsOnInsert: true
+            },
+            function(err, doc){
+                if (err) return res.send(500, { error: err });
+                return res.jsonp(doc);
+            });
     }
     catch(error) {
         console.log(error);
