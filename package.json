@@ -32,9 +32,7 @@
   },
   "devDependencies": {
     "mongoose": "^5.0.7",
-<<<<<<< HEAD
-    "nodemon": "^1.17.1"
-=======
+    "nodemon": "^1.17.1",
     "concurrently": "^3.2.0",
     "lite-server": "^2.2.2",
     "typescript": "~2.1.6",
@@ -55,6 +53,5 @@
 
     "@types/node": "^6.0.46",
     "@types/jasmine": "2.5.36"
->>>>>>> 4ab498ecc20dd45028f160f59cf47814e28de60a
   }
 }
