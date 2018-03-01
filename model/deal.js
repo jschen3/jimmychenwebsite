@@ -9,30 +9,25 @@ var mongoose = require('mongoose'),
 /**
  * Bucket List Schema
  */
-var VouchSchema = new Schema({
+var DealSchema = new Schema({
   vouched_date: {
     type: Date,
     default: Date.now
-  },
-  id: {
-    type: String,
-    default: '',
-    trim: true
   },
   user_id: {
     type: String,
     default: '',
     trim: true
   },
-  item_id: {
+  vouch_id: {
     type: String,
     default: '',
     trim: true
   },
-  vouch_qty: {
+  vouchQty: {
     type: Number,
     default: 1
   }
 });
 
-mongoose.model('vouch', VouchSchema);
+mongoose.model('DealSchema', DealSchema);
