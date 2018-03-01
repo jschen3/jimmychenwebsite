@@ -9,17 +9,17 @@ var mongoose = require('mongoose'),
 /**
  * Bucket List Schema
  */
-var VouchSchema = new Schema({
+var DealSchema = new Schema({
   vouched_date: {
     type: Date,
     default: Date.now
   },
-  emailAddress: {
+  user_id: {
     type: String,
     default: '',
     trim: true
   },
-  itemId: {
+  vouch_id: {
     type: String,
     default: '',
     trim: true
@@ -30,4 +30,4 @@ var VouchSchema = new Schema({
   }
 });
 
-mongoose.model('vouch', VouchSchema);
+mongoose.model('DealSchema', DealSchema);
