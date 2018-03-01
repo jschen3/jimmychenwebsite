@@ -10,15 +10,15 @@ import { Item } from '../../model/item';
   styleUrls: ['./item-detail.component.css']
 })
 export class ItemDetailComponent implements OnInit {
-  item: Item[];
+  item: Item;
   constructor(private itemService:ItemService ) { 
-    this.getAllItems();
+    this.getItemById();
   }
   ngOnInit() {
     
   }
 
-  getAllItems(){
+  getItemById(){
      this.itemService.getItemById().subscribe((data)=>{
        console.log(data);
        this.item = data;
