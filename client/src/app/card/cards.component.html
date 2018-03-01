@@ -8,19 +8,30 @@
         <p class="minVouches">{{card.min_voucher}}</p>    
     </div> -->
 
-    <div class="card">
+<!--Card-->
+<div class="card" style="width: 200px;" *ngFor="let card of cards">
 
-        <!--Card image-->
-        <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Lightbox/Thumbnail/img%20(97).jpg" alt="Card image cap">
-    
-        <!--Card content-->
-        <div class="card-body">
-            <!--Title-->
-            <h4 class="card-title">Card title</h4>
-            <!--Text-->
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-primary waves-light" mdbRippleRadius>Button</a>
-        </div>
-    
+    <!--Card image-->
+    <div class="view hm-white-slight waves-light" mdbRippleRadius>
+        <img class="img-fluid" src="{{card.image_small}}"/>
     </div>
-                
+    <!--/.Card image-->
+    <!--Card content-->
+    <div class="card-body">
+        <!--Title-->
+        <h4 class="card-title">{{card.name}}</h4>
+        <hr>
+        <!--Text-->
+        <div class="card-text">
+            <p class="card-price">{{card.current_price}}</p>
+            <p class="card-price">{{card.vouched_price}}</p>
+            <p class="vouches">{{card.vouches}}</p>
+            <p class="minVouches">{{card.min_voucher}}</p>  
+
+        </div>
+    </div>
+    <!--/.Card content-->
+
+</div>
+<!--Card-->
+            
