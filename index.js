@@ -14,6 +14,7 @@ var bodyParser = require('body-parser')
 app.use(bodyParser.json())
 
 const path = require('path');
+const cors = require('cors');
 
 mongoose.connect(mongoDB);
 mongoose.Promise = global.Promise;
@@ -24,8 +25,10 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'));
   res.send('Hello World!');
 });*/
 
+app.use(cors({ origin: 'http://localhost:4200' }));
 
 app.use(express.static(__dirname + '/public'));
+
 
 app.listen(3000, function () {
   console.log('Example app listening on port 3000!');
@@ -37,7 +40,7 @@ app.post('/api/createUser', function (req, res) {
 });
 
 app.post('/api/createItem', function (req, res) {
-    console.log(req.body);
+    console.log(req.body)
     createItem.create(req, res);
 });
 
@@ -50,11 +53,6 @@ app.post('/api/userVouch', function (req, res) {
     userVouch.create(req, res);
 });
 
-
-// app.get('*', (req, res) => {
-//   res.sendFile(path.join(__dirname + '/public/index.html'))
-// });
-
 app.get('/api/getItemsByVoucherExpiry', function (req, res) {
     getItemsByVoucherExpiry.find(req, res);
  });
@@ -66,4 +64,8 @@ app.get('/api/getItemById/:item_id', function (req, res) {
 app.get('/api/getAllItems', function (req, res) {
     getAllItems.findAllItems(req, res);
 
+});
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname + '/public/index.html'))
 });
