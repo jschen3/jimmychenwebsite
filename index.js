@@ -2,6 +2,7 @@ var express = require('express');
 var app = express();
 var createUser = require('./controllers/createUser');
 var createItem = require('./controllers/createItem');
+var createVoucher = require('./controllers/createVoucher');
 var getItemsByVoucherExpiry = require('./controllers/getItemsByExpiry');
 var getItemById = require('./controllers/getItem');
 var getAllItems = require('./controllers/getAllItems');
@@ -39,6 +40,10 @@ app.post('/createItem', function (req, res) {
     createItem.create(req, res);
 });
 
+app.post('/createVoucher', function (req, res) {
+    console.log(req.body);
+    createVoucher.create(req, res);
+});
 
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname + '/public/index.html'))});

@@ -14,22 +14,17 @@ var VouchSchema = new Schema({
     type: Date,
     default: Date.now
   },
-  id: {
+  emailAddress: {
     type: String,
     default: '',
     trim: true
   },
-  user_id: {
+  itemId: {
     type: String,
     default: '',
     trim: true
   },
-  item_id: {
-    type: String,
-    default: '',
-    trim: true
-  },
-  vouch_qty: {
+  vouchQty: {
     type: Number,
     default: 1
   }
