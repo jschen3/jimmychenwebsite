@@ -10,15 +10,15 @@ var mongoose = require('mongoose'),
 /**
  * Create/Update an Item
  */
-exports.findByExpiry = function(req, res) {
-    console.log("Inside getItems by expiry");
+exports.findAllItems = function(req, res) {
+    console.log("Inside getItems ");
     try {
         console.log(req.body);
         var item = new ItemSchema(req.body);
 
         console.log(item);
 
-        ItemSchema.find({}).sort('voucher_expiration').exec(
+        ItemSchema.find({}).exec(
             function(err, doc){
                 if (err) return res.send(500, { error: err });
                 return res.jsonp(doc);
