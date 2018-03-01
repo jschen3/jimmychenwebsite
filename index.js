@@ -2,9 +2,12 @@ var express = require('express');
 var app = express();
 var createUser = require('./controllers/createUser');
 var createItem = require('./controllers/createItem');
+var getItemsByVoucherExpiry = require('./controllers/getItemsByExpiry');
+var getItemById = require('./controllers/getItem');
+var getAllItems = require('./controllers/getAllItems');
 
 var mongoose = require('mongoose');
-var mongoDB = 'mongodb://127.0.0.1/test';
+var mongoDB = 'mongodb://10.65.98.238:27017/powervouch';
 var bodyParser = require('body-parser')
 app.use(bodyParser.json())
 
@@ -36,6 +39,20 @@ app.post('/createItem', function (req, res) {
     createItem.create(req, res);
 });
 
+
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname + '/public/index.html'));
+
+app.get('/getItemsByVoucherExpiry', function (req, res) {
+    getItemsByVoucherExpiry.find(req, res);
+ });
+
+app.post('/getItemById', function (req, res) {
+    console.log(req.body);
+    getItemById.findItem(req, res);
+});
+
+app.get('/getAllItems', function (req, res) {
+    getAllItems.findAllItems(req, res);
+
 });
