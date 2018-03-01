@@ -8,7 +8,7 @@ export class ItemService {
   }
 
   getItemById(){
-    return this.http.get<Item>('http://localhost:3000/getItemById/55500575');
+    return this.http.get<Item>('http://localhost:3000/api/getItemById/55500575');
   }
 
 }
