@@ -14,7 +14,7 @@ var bodyParser = require('body-parser')
 app.use(bodyParser.json())
 
 const path = require('path');
-const cors = require('cors'); 
+const cors = require('cors');
 
 mongoose.connect(mongoDB);
 mongoose.Promise = global.Promise;
@@ -34,35 +34,34 @@ app.listen(3000, function () {
   console.log('Example app listening on port 3000!');
 });
 
-app.post('/createUser', function (req, res) {
+app.post('/api/createUser', function (req, res) {
   console.log(req.body);
   createUser.create(req, res);
 });
 
-app.post('/createItem', function (req, res) {
+app.post('/api/createItem', function (req, res) {
     console.log(req.body)
     createItem.create(req, res);
 });
 
-app.post('/createVoucher', function (req, res) {
+app.post('/api/createVoucher', function (req, res) {
     console.log(req.body);
     createVoucher.create(req, res);
 });
-app.post('/userVouch', function (req, res) {
+app.post('/api/userVouch', function (req, res) {
     console.log(req.body);
     userVouch.create(req, res);
 });
 
-app.get('/getItemsByVoucherExpiry', function (req, res) {
+app.get('/api/getItemsByVoucherExpiry', function (req, res) {
     getItemsByVoucherExpiry.find(req, res);
  });
 
-app.post('/getItemById', function (req, res) {
-    console.log(req.body);
+app.get('/api/getItemById/:item_id', function (req, res) {
     getItemById.findItem(req, res);
 });
 
-app.get('/getAllItems', function (req, res) {
+app.get('/api/getAllItems', function (req, res) {
     getAllItems.findAllItems(req, res);
 
 });
