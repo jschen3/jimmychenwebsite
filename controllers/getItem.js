@@ -16,7 +16,7 @@ exports.findItem = function(req, res) {
         console.log(req.params.item_id);
         var query = {'id':req.params.item_id};
 
-        ItemSchema.find(query).exec(
+        ItemSchema.findOne(query).exec(
             function(err, doc){
                 if (err) return res.send(500, { error: err });
                 return res.jsonp(doc);
