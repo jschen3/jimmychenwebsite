@@ -1,9 +1,37 @@
 
-    <div class="card" *ngFor="let card of cards">
+    <!-- <div class="card" *ngFor="let card of cards">
         <img class="img-fluid" src="{{card.image_small}}"/>
         <h3 class="card-title">{{card.name}}</h3>
         <p class="card-price">{{card.current_price}}</p>
         <p class="card-price">{{card.vouched_price}}</p>
         <p class="vouches">{{card.vouches}}</p>
         <p class="minVouches">{{card.min_voucher}}</p>    
+    </div> -->
+
+<!--Card-->
+<div class="card" style="width: 200px;" *ngFor="let card of cards">
+
+    <!--Card image-->
+    <div class="view hm-white-slight waves-light" mdbRippleRadius>
+        <img class="img-fluid" src="{{card.image_small}}"/>
     </div>
+    <!--/.Card image-->
+    <!--Card content-->
+    <div class="card-body">
+        <!--Title-->
+        <h4 class="card-title">{{card.name}}</h4>
+        <hr>
+        <!--Text-->
+        <div class="card-text">
+            <p class="card-price">{{card.current_price}}</p>
+            <p class="card-price">{{card.vouched_price}}</p>
+            <p class="vouches">{{card.vouches}}</p>
+            <p class="minVouches">{{card.min_voucher}}</p>  
+
+        </div>
+    </div>
+    <!--/.Card content-->
+
+</div>
+<!--Card-->
+            
