@@ -5,6 +5,8 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { ProgressbarModule } from 'ngx-bootstrap/progressbar';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { ShareModule } from '@ngx-share/core';
 
 import { AppComponent } from './app.component';
 import {CardsContainer} from './card/card.component';
@@ -29,7 +31,9 @@ import {FormsModule} from '@angular/forms'
     MDBBootstrapModule.forRoot(),
     ProgressbarModule.forRoot(),
     BsDropdownModule.forRoot(),
-    FormsModule
+    NgbModule.forRoot(),
+    FormsModule,
+    ShareModule.forRoot()
   ],
   schemas: [ NO_ERRORS_SCHEMA ],
   providers: [ItemService],
