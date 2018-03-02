@@ -5,7 +5,8 @@ import {CardsService} from './cards.service';
 @Component({
     selector:'cards-container',
     templateUrl:'cards.component.html',
-    providers:[CardsService]
+    providers:[CardsService],
+    styleUrls: ['./cards.component.scss']
 })
 export class CardsContainer implements OnInit{
     cards:Item[];
