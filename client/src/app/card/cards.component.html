@@ -9,29 +9,78 @@
     </div> -->
 
 <!--Card-->
-<div class="card" style="width: 200px;" *ngFor="let card of cards">
 
-    <!--Card image-->
-    <div class="view hm-white-slight waves-light" mdbRippleRadius>
-        <img class="img-fluid" src="{{card.image_small}}"/>
-    </div>
-    <!--/.Card image-->
-    <!--Card content-->
-    <div class="card-body">
-        <!--Title-->
-        <h4 class="card-title">{{card.name}}</h4>
-        <hr>
-        <!--Text-->
-        <div class="card-text">
-            <p class="card-price">{{card.current_price}}</p>
-            <p class="card-price">{{card.vouched_price}}</p>
-            <p class="vouches">{{card.vouches}}</p>
-            <p class="minVouches">{{card.min_voucher}}</p>  
-
-        </div>
-    </div>
-    <!--/.Card content-->
-
-</div>
 <!--Card-->
-            
+      
+<mdb-carousel [isControls]="true" class="carousel-multi-item multi-animation" [type]="'carousel-multi-item'" [interval]="0">
+    <!--First slide-->
+
+    <mdb-slide >
+    <div class="col-md-2 myCard" *ngFor="let card of cards">
+        <div class="card">
+
+            <!--Card image-->
+            <div class="view hm-white-slight waves-light" mdbRippleRadius>
+                <img class="mx-auto d-block" src="{{card.image_small}}"/>
+            </div>
+            <!--/.Card image-->
+            <!--Card content-->
+            <div class="card-body">
+                <!--Title-->
+                <p class="card-title">{{card.name}}</p>
+                <hr>
+                <!--Text-->
+                <div class="card-text">
+                        
+                    <div class="float-left dealPrice ">{{card.vouched_price}}</div>
+                    <p class="currentPrice">{{card.current_price}}</p>
+                    <div>
+                    <p class="vouches">{{card.vouches}}/{{card.min_voucher}}</p>
+                    </div>
+                    <button type="button" class="btn btn-primary btn-rounded">PoverVouch</button>
+        
+                </div>
+            </div>
+            <!--/.Card content-->
+        
+        </div>
+        </div>
+        <!-- </div> -->
+    </mdb-slide>
+    <!--/First slide-->
+    <!--Second slide-->
+    <!-- <mdb-slide>
+        <div class="col-md-4">
+            <div class="card">
+                <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(60).jpg" alt="Card image cap">
+                <div class="card-body">
+                    <h4 class="card-title">Card title</h4>
+                    <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-primary waves-light" mdbRippleRadius>Button</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 clearfix d-none d-md-block">
+            <div class="card">
+                <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(47).jpg" alt="Card image cap">
+                <div class="card-body">
+                    <h4 class="card-title">Card title</h4>
+                    <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-primary waves-light" mdbRippleRadius>Button</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 clearfix d-none d-md-block">
+            <div class="card">
+                <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(48).jpg" alt="Card image cap">
+                <div class="card-body">
+                    <h4 class="card-title">Card title</h4>
+                    <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-primary waves-light" mdbRippleRadius>Button</a>
+                </div>
+            </div>
+        </div>    
+    </mdb-slide> -->
+    <!--/Second slide-->
+    
+</mdb-carousel>
