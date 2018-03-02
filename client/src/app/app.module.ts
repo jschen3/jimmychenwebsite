@@ -4,6 +4,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { ProgressbarModule } from 'ngx-bootstrap/progressbar';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import {RoundProgressModule} from 'angular-svg-round-progressbar';
+
 
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { ShareModule } from '@ngx-share/core';
@@ -33,7 +35,8 @@ import {CheckoutService} from './checkout/checkout.service';
     BsDropdownModule.forRoot(),
     NgbModule.forRoot(),
     FormsModule,
-    ShareModule.forRoot()
+    ShareModule.forRoot(),
+    RoundProgressModule
   ],
   schemas: [ NO_ERRORS_SCHEMA ],
   providers: [ItemService,CheckoutService],

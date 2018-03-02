@@ -20,9 +20,13 @@
     <div class="row cart-body z-depth-1">
       <div class="price-row"><span class="disc-price text-left">${{item.vouch_price}}</span>  <span class="curr-price">Orig. price ${{item.current_price}}</span>  <span class="save-perct">save 10%</span> </div>
       <hr>
-      <div class="timer">Expires: {{item.voucher_expiration}}</div>
-      <div class="counter-bar"><progressbar [max]="item.min_vouch" [value]="item.vouch_qty" type="success" [animate]="true"><i>{{item.vouch_qty}}/{{item.min_vouch}}</i></progressbar>
+      <div class="progress-wrapper">
+          <div class="current">{{item.vouch_qty}}/{{item.min_vouch}}</div>
+          <round-progress [current]="item.vouch_qty" [max]="item.min_vouch" [semicircle]="true"  [rounded]="true"></round-progress>
+          
       </div>
+      <div class="timer">Expires: {{item.voucher_expiration}}</div>
+      
 
       <div>
         <p>Vouch now and get the item at the discounted price if 100% vouches are reached by the deadline</p>
