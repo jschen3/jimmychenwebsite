@@ -18,11 +18,17 @@ export class ItemDetailComponent implements OnInit {
   id: number;
   private sub: any;
   item$: Observable<Item>;
+  vouchQty: number[] = [1,2,3,4,5,6,7,8,9,10];
+  buyQty: number[] = [1,2,3,4,5,6,7,8,9,10];
+  selectedVouchQty: number = 1;
+  selectedBuyQty: number = 1;
 
   constructor(private itemService:ItemService,
     private route: ActivatedRoute,
     private router: Router ) { 
       // this.getItemById();
+      // this.selectedVouchQty = 1;
+      // this.selectedBuyQty = 1;
       
   }
   ngOnInit() {

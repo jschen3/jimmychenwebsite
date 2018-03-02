@@ -17,15 +17,30 @@
         </div>
   </div>
   <div class="col-md-4 cart-card">
-    <div class="row z-depth-1">
+    <div class="row cart-body z-depth-1">
       <div class="price-row"><span class="disc-price text-left">${{item.vouch_price}}</span>  <span class="curr-price">Orig. price ${{item.current_price}}</span>  <span class="save-perct">save 10%</span> </div>
       <hr>
       <div class="timer">Expires: {{item.voucher_expiration}}</div>
-
-      <progressbar [max]="item.min_vouch" [value]="item.vouch_qty" type="success" [animate]="true"><i>{{item.vouch_qty}}/{{item.min_vouch}}</i></progressbar>
-      <div>
-         
+      <div class="counter-bar"><progressbar [max]="item.min_vouch" [value]="item.vouch_qty" type="success" [animate]="true"><i>{{item.vouch_qty}}/{{item.min_vouch}}</i></progressbar>
       </div>
+
+      <div>
+        <p>Vouch now and get the item at the discounted price if 100% vouches are reached by the deadline</p>
+      </div>
+       <div> <p class="qty-select">Qty: <select [(ngModel)]="selectedVouchQty">
+          <option *ngFor="let q of vouchQty" value="q">{{q}}</option>
+       </select> </p> 
+       <button type="button" class="btn btn-warning btn-rounded" style="background-color:#ff941a;" (click)="changeRoute(card.id)"> Get the deal</button>
+      </div>
+       <hr>
+       <div class="text-center"><p >Don't want to wait till the deal closes. Buy now for original price</p></div>
+       <div><p class="qty-select">Qty: <select [(ngModel)]="selectedBuyQty">
+            <option *ngFor="let q of buyQty" value="q">{{q}}</option>
+            </select> </p> 
+            <button type="button" class="btn btn-info btn-rounded" (click)="changeRoute(card.id)"> Buy Now ${{item.current_price}}</button>
+        </div>
+         
+
       
       <!-- <mdb-progressbar value="25" min="0" max="100" type="success" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></mdb-progressbar> -->
 
