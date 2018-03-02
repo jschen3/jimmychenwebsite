@@ -4,7 +4,7 @@ import { Item } from '../../model/item';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import 'rxjs/add/operator/switchMap';
 import { Observable } from 'rxjs/Observable';
-// import {NgbProgressbarConfig} from '@ng-bootstrap/ng-bootstrap';
+
 
 
 

@@ -1,4 +1,4 @@
-<div class="container-fluid item-detail">
+<div class="container-fluid item-detail" ng-if="item">
   <!-- Content here -->
   <div class="row">
     <div class="col-md-8 item-card">
@@ -21,8 +21,10 @@
       <div class="price-row"><span class="disc-price text-left">${{item.vouch_price}}</span>  <span class="curr-price">Orig. price ${{item.current_price}}</span>  <span class="save-perct">save 10%</span> </div>
       <hr>
       <div class="timer">Expires: {{item.voucher_expiration}}</div>
+
+      <progressbar [max]="item.min_vouch" [value]="item.vouch_qty" type="success" [animate]="true"><i>{{item.vouch_qty}}/{{item.min_vouch}}</i></progressbar>
       <div>
-          <p><ngb-progressbar type="success" [value]="25"></ngb-progressbar></p>
+         
       </div>
       
       <!-- <mdb-progressbar value="25" min="0" max="100" type="success" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></mdb-progressbar> -->

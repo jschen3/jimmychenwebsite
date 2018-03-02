@@ -7,6 +7,7 @@ export interface Item {
     current_price: string;
     vouch_price: string,
     min_vouch: number,
+    vouch_qty: number,
     voucher_expiration: Date
 
   }
