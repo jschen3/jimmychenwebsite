@@ -3,7 +3,7 @@
 /**
  * Module dependencies.
  */
-
+var getItemById = require('./getItem');
 var mongoose = require('mongoose'),
     ItemSchema = mongoose.model('ItemSchema'),
     VoucherSchema = mongoose.model('VoucherSchema'),
@@ -16,50 +16,46 @@ exports.findAllItems = function(req, res) {
     console.log("Inside getItems ");
     let promiseArr = [];
     try {
-        console.log(req.body);
-        var item = new ItemSchema(req.body);
         var response = [];
-        console.log(item);
         ItemSchema.find({}).exec(
-            function(err, listItems){
-                if (err) return res.send(500, { error: err });
-                console.log(listItems);
-                listItems.forEach(function(item) {
-                  var itemCount = 0;
-                  var validVoucher;
-                  console.log(item.id);
-                  VoucherSchema.find({
-                    "item_id": item.id,
-                    "voucher_expiration": {
-                      $gte: new Date()
-                    }
-                  }).exec(
-                    function(err, listVouchers) {
-                      if (err) return res.send(500, { error: err });
-                      listVouchers.forEach(function(voucher) {
-                        validVoucher = voucher;
-                        console.log(voucher._id);
-                        DealSchema.find({"vouch_id": voucher._id}).exec(
-                          function(err, deals) {
-                            if (err) return res.send(500, { error: err });
-                            deals.forEach(function(deal) {
-                              itemCount+= deal.vouchQty;
-                            });
-                          }
-                        );
-                        item.vouchQty = itemCount;
-                        response.push(item);
-                      });
-                      console.log(response);
-
-                    });
-
-                });
-
-            });
+            async function(err, listItems){
+                return res.jsonp(listItems);
+          });
     }
     catch(error) {
-        console.log(error);
+        console.log("ERROR" + error);
     }
 
 };
+
+// function getItem(item) {
+//   try {
+//     console.log("inside getItem");
+//     let itemObj = item.toObject();
+//     new Promise(return VoucherSchema.findOne({"item_id": item.id}).exec(
+//         function(err, voucher) {
+//           console.log("inside await");
+//           if (err) return res.send(500, { "error": err });
+//         //  console.log(voucher);
+//           itemObj.vouch_price = voucher.vouched_price;
+//           itemObj.min_vouch = voucher.min_voucher;
+//           itemObj.voucher_expiration = voucher.voucher_expiration;
+//           let totalCount = 0;
+//           // console.log(voucher._id);
+//           DealSchema.find({"vouch_id": voucher._id}).exec(
+//             function(err, deals) {
+//               // console.log("deals" + deals);
+//               for(let i = 0; i < deals.length; i++) {
+//                   var deal = deals[i];
+//                   totalCount+= deal.vouchQty;
+//               }
+//
+//               itemObj.vouch_qty = totalCount;
+//               console.log(itemObj);
+//               return itemObj;
+//           });
+//         });
+//   } catch (error) {
+//     return error;
+//   }
+// }
