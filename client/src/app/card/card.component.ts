@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Item} from './item'
 import {CardsService} from './cards.service';
+import { Router } from "@angular/router";   
 
 @Component({
     selector:'cards-container',
@@ -10,7 +11,8 @@ import {CardsService} from './cards.service';
 })
 export class CardsContainer implements OnInit{
     cards:Item[];
-    constructor(private cardService:CardsService){
+    constructor(private cardService:CardsService,
+    private router:Router){
     console.log("Hello");
       this.cardService.getAllItemsInfo();
     }
@@ -18,5 +20,8 @@ export class CardsContainer implements OnInit{
         this.cards=this.cardService.getItems();
     }
 
-
+    changeRoute(id: string) {
+        // this.dataService.data = data;
+        this.router.navigate(['/item', id]);
+    }
 }

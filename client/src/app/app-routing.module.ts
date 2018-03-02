@@ -4,7 +4,7 @@ import {ItemDetailComponent} from './item-detail/item-detail.component';
 import {CardsContainer} from './card/card.component';
 
 const routes: Routes = [
-  { path: 'item', component: ItemDetailComponent },
+  { path: 'item/:id', component: ItemDetailComponent },
   { path: '', component: CardsContainer, pathMatch: 'full' },
   // { path: '', redirectTo: '/cards', pathMatch: 'full' },
 ];

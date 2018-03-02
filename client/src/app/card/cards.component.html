@@ -14,6 +14,11 @@
 
 <div> <img class="img-fluid" src="/assets/baner.png">
 </div>
+<div class="container-fluid" style="background-color:#eceff1;">
+<div class="">
+<div class="row">
+        <div class="col-12 text-center" style="font-size:18px;"> <img src="/assets/Heat.png" style="width:20px;"> Deals just for you </div>
+</div>
 
 <mdb-carousel [isControls]="true" class="carousel-multi-item multi-animation" [type]="'carousel-multi-item'" [interval]="0">
     <!--First slide-->
@@ -40,8 +45,8 @@
                     <div>
                     <p class="vouches">{{card.vouch_qty}}/{{card.min_vouch}}</p>
                     </div>
-                    <button type="button" class="btn btn-primary btn-rounded">PoverVouch</button>
-
+                    <button type="button" class="btn btn-primary btn-rounded" (click)="changeRoute(card.id)"> PoverVouch</button>
+        
                 </div>
             </div>
             <!--/.Card content-->
@@ -87,3 +92,5 @@
     <!--/Second slide-->
 
 </mdb-carousel>
+</div>
+</div>
