@@ -6,6 +6,7 @@ var createVoucher = require('./controllers/createVoucher');
 var userVouch = require('./controllers/userVouch');
 var getItemsByVoucherExpiry = require('./controllers/getItemsByExpiry');
 var getItemById = require('./controllers/getItem');
+var getCount = require('./controllers/getCount');
 var getAllItems = require('./controllers/getAllItems');
 
 var mongoose = require('mongoose');
@@ -64,6 +65,10 @@ app.get('/api/getItemById/:item_id', function (req, res) {
 app.get('/api/getAllItems', function (req, res) {
     getAllItems.findAllItems(req, res);
 
+});
+
+app.get('/api/getCount/:item_id', function (req, res) {
+    getCount.getCount(req, res);
 });
 
 // app.get('*', (req, res) => {
