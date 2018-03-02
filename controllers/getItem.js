@@ -32,6 +32,7 @@ exports.findItem = function(req, res) {
                       itemObj.vouch_price = voucher.vouched_price;
                       itemObj.min_vouch = voucher.min_voucher;
                       itemObj.voucher_expiration = voucher.voucher_expiration;
+                      itemObj.vouch_id = voucher._id;
                       let totalCount = 0;
                       // console.log(voucher._id);
                       DealSchema.find({"vouch_id": voucher._id}).exec(
