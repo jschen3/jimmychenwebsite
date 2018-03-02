@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormsModule} from '@angular/forms';
-import {CheckoutDetails} from './checkout-details';
+import {CheckoutDetails} from '../../model/checkout-details';
 import {Item} from '../../model/item'
 import { Observable } from 'rxjs/Observable';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
@@ -15,11 +15,12 @@ export class CheckoutComponent implements OnInit {
   model:CheckoutDetails = new CheckoutDetails();
   item: Item;
   id: number;
-  private sub: any;
+  sub: any;
   current_price:number;
   vouch_price:number;
   image_small:string;
   itemObservable: Observable<Item>;
+  vouch_id:string;
   constructor(private checkoutService:CheckoutService,
     private route: ActivatedRoute,
     private router: Router ) { 
@@ -42,6 +43,14 @@ export class CheckoutComponent implements OnInit {
        this.current_price=parseFloat(this.item.current_price);
        this.vouch_price = parseFloat(this.item.vouch_price);
        this.image_small = this.item.image_small;
+       this.vouch_id= this.item.vouch_id;
      });
+  }
+  onSubmit(){
+    console.log(this.model);
+    this.checkoutService.createUser(this.model).subscribe((data)=>{
+      console.log("Data:"+data._id);
+      this.checkoutService.vouch(data._id, this.vouch_id, this.model);
+    });
   }
 }

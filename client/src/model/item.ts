@@ -9,5 +9,5 @@ export interface Item {
     min_vouch: number,
     vouch_qty: number,
     voucher_expiration: Date
-
+    vouch_id: string;
   }
