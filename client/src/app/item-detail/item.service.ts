@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Item } from '../../model/item';
+import { forEach } from '@angular/router/src/utils/collection';
 
 @Injectable()
 export class ItemService {
@@ -17,6 +18,13 @@ export class ItemService {
   }
 
   getAllItemsInfo(){
-
+    
+    this.getAllItems().subscribe(items=>{
+      items.forEach((item)=>{
+        this.getItemById(item.id).subscribe(data=>{
+          
+        })
+      })
+    })
   }
 }
