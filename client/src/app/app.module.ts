@@ -3,7 +3,7 @@ import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-
+import { ShareModule } from '@ngx-share/core';
 
 import { AppComponent } from './app.component';
 import {CardsContainer} from './card/card.component';
@@ -27,7 +27,8 @@ import {FormsModule} from '@angular/forms'
     HttpClientModule,
     MDBBootstrapModule.forRoot(),
     NgbModule.forRoot(),
-    FormsModule
+    FormsModule,
+    ShareModule.forRoot()
   ],
   schemas: [ NO_ERRORS_SCHEMA ],
   providers: [ItemService],

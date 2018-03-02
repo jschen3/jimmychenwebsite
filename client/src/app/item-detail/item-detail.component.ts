@@ -5,8 +5,7 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import 'rxjs/add/operator/switchMap';
 import { Observable } from 'rxjs/Observable';
 // import {NgbProgressbarConfig} from '@ng-bootstrap/ng-bootstrap';
-
-
+import { ShareButtons } from '@ngx-share/core';
 
 @Component({
   selector: 'app-item-detail',
@@ -21,9 +20,10 @@ export class ItemDetailComponent implements OnInit {
 
   constructor(private itemService:ItemService,
     private route: ActivatedRoute,
-    private router: Router ) { 
+    public share: ShareButtons,
+    private router: Router ) {
       // this.getItemById();
-      
+
   }
   ngOnInit() {
     this.route.params.subscribe( params =>{
