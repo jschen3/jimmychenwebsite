@@ -11,18 +11,19 @@ import { Item } from '../../model/item';
 })
 export class ItemDetailComponent implements OnInit {
   item: Item;
-  constructor(private itemService:ItemService ) { 
+  constructor(private itemService:ItemService ) {
     this.getItemById();
   }
   ngOnInit() {
-    
+
   }
 
   getItemById(){
-     this.itemService.getItemById().subscribe((data)=>{
+     this.itemService.getItemById("123").subscribe((data)=>{
        console.log(data);
        this.item = data;
      });
 
   }
+
 }

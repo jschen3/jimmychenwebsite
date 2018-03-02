@@ -11,7 +11,8 @@ import {CardsService} from './cards.service';
 export class CardsContainer implements OnInit{
     cards:Item[];
     constructor(private cardService:CardsService){
-
+    console.log("Hello");
+      this.cardService.getAllItemsInfo();
     }
     ngOnInit(){
         this.cards=this.cardService.getItems();
@@ -19,4 +20,3 @@ export class CardsContainer implements OnInit{
 
 
 }
-

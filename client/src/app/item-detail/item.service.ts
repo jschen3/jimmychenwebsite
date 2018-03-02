@@ -16,15 +16,5 @@ export class ItemService {
   getAllItems(){
     return this.http.get<Item[]>('http://localhost:3000/api/getAllItems');
   }
-
-  getAllItemsInfo(){
-    
-    this.getAllItems().subscribe(items=>{
-      items.forEach((item)=>{
-        this.getItemById(item.id).subscribe(data=>{
-          
-        })
-      })
-    })
-  }
+  
 }
