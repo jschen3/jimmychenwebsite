@@ -1,4 +1,29 @@
 .myCard{
    padding-bottom: 10px;
     padding-top: 10px;
+
+    .card-body{
+        p{
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .card-text{
+            .dealPrice{
+                color: red;
+                font-size: 2em;
+            }
+            .currentPrice{
+                text-decoration: line-through;
+            }
+
+            .vouches{
+                width: 100%;
+                margin: 0px;
+            }
+        }
+    }
+
+    
 }
