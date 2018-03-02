@@ -7,7 +7,7 @@ import { CheckoutComponent } from './checkout/checkout.component';
 const routes: Routes = [
   { path: 'item/:id', component: ItemDetailComponent },
   { path: '', component: CardsContainer, pathMatch: 'full' },
-  { path: 'checkout/:id', component:CheckoutComponent, pathMatch: 'full' },
+  { path: 'checkout/:id/:qty', component:CheckoutComponent },
 ];
 
 

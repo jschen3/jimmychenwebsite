@@ -8,7 +8,7 @@
            <img src="{{item.image_small}}" alt="" class="img-thumbnail">
          </div>
          <div class="col-10">
-            <img src="{{item.image_big}}" alt="">
+            <img src="{{item.image_big}}" alt="" style="width:100%;">
          </div>
        </div>
        <div class="row">
@@ -21,8 +21,8 @@
       <div class="price-row"><span class="disc-price text-left">${{item.vouch_price}}</span>  <span class="curr-price">Orig. price ${{item.current_price}}</span>  <span class="save-perct">save 10%</span> </div>
       <hr>
       <div class="progress-wrapper">
-          <div class="current">{{item.vouch_qty}}/{{item.min_vouch}}</div>
-          <round-progress [current]="item.vouch_qty" [max]="item.min_vouch" [semicircle]="true"  [rounded]="true"></round-progress>
+          <div class="current">{{vouch_qty}}/{{item.min_vouch}}</div>
+          <round-progress [current]="vouch_qty" [max]="item.min_vouch" [semicircle]="true"  [rounded]="true"></round-progress>
           
       </div>
       <div class="timer">Expires: {{item.voucher_expiration}}</div>
@@ -32,14 +32,26 @@
         <p>Vouch now and get the item at the discounted price if 100% vouches are reached by the deadline</p>
       </div>
        <div> <p class="qty-select">Qty: <select [(ngModel)]="selectedVouchQty">
-          <option *ngFor="let q of vouchQty" value="q">{{q}}</option>
+          <option *ngFor="let q of vouchQty" [ngValue]="q">{{q}}</option>
        </select> </p> 
-       <button type="button" class="btn btn-warning btn-rounded" style="background-color:#ff941a;" (click)="changeRoute(card.id)"> Get the deal</button>
+       <button type="button" class="btn btn-warning btn-rounded" style="background-color:#ff941a;" (click)="changeRoute()"> Get the deal</button>
+       <div>
+          <!-- <share-buttons [theme]="'circles-dark'" [include]="['facebook']" [show]="14" [url]="'http://twitter.com/'"></share-buttons> -->
+          <button shareButton="twitter" [style.backgroundColor]="share.prop.twitter.color">
+              <i [class]="share.prop.twitter.icon"></i>
+            </button>
+          <button mat-fab shareButton="facebook" [style.backgroundColor]="share.prop.facebook.color">
+            <i [class]="share.prop.facebook.icon"></i>
+          </button>
+          <button shareButton="whatsapp" [style.backgroundColor]="share.prop.whatsapp.color">
+            <i [class]="share.prop.whatsapp.icon"></i>
+          </button>
+        </div>
       </div>
        <hr>
        <div class="text-center"><p >Don't want to wait till the deal closes. Buy now for original price</p></div>
        <div><p class="qty-select">Qty: <select [(ngModel)]="selectedBuyQty">
-            <option *ngFor="let q of buyQty" value="q">{{q}}</option>
+            <option *ngFor="let q of buyQty" [ngValue]="q">{{q}}</option>
             </select> </p> 
             <button type="button" class="btn btn-info btn-rounded" (click)="changeRoute(card.id)"> Buy Now ${{item.current_price}}</button>
         </div>
@@ -50,17 +62,7 @@
       <!-- <mdb-progressbar value="25" min="0" max="100" type="success" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></mdb-progressbar> -->
 
     </div>
-    <div>
-      <button shareButton="twitter" [style.backgroundColor]="share.prop.twitter.color">
-        <i [class]="share.prop.twitter.icon"></i>
-      </button>
-      <button shareButton="facebook" [style.backgroundColor]="share.prop.facebook.color">
-        <i [class]="share.prop.facebook.icon"></i>
-      </button>
-      <button shareButton="whatsapp" [style.backgroundColor]="share.prop.whatsapp.color">
-        <i [class]="share.prop.whatsapp.icon"></i>
-      </button>
-    </div>
+ 
   </div>
 
 

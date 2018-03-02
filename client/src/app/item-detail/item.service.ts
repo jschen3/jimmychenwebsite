@@ -26,4 +26,8 @@ export class ItemService {
       })
     })
   }
+
+  getVouchCount(itemId){
+    return this.http.get(`http://localhost:3000/api/getCount/${itemId}`);
+  }
 }
