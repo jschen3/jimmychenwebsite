@@ -4,26 +4,20 @@ import { Item } from '../../model/item';
 import { forEach } from '@angular/router/src/utils/collection';
 
 @Injectable()
-export class ItemService {
+export class CheckoutService {
   constructor(private http: HttpClient) {
   }
 
   getItemById(id){
+    // const url = ``
     return this.http.get<Item>(`http://localhost:3000/api/getItemById/${id}`);
   }
 
-  getAllItems(){
-    return this.http.get<Item[]>('http://localhost:3000/api/getAllItems');
+  vouch(){
+
+  }
+  createUser(){
+      
   }
 
-  getAllItemsInfo(){
-    let arr:any[];
-    this.getAllItems().subscribe(items=>{
-      items.forEach((item)=>{
-        this.getItemById(item.id).subscribe(data=>{
-          
-        })
-      })
-    })
-  }
 }
