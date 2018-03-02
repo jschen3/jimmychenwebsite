@@ -15,7 +15,13 @@
     .cart-card{
         padding-top: 100px;
         padding-right: 30px;
-
+        
+        .cart-body{
+            padding: 10px;
+        }
+        hr{
+            width: 100%;
+        }
         .timer{
             width: 100%;
             margin-left: 0px;
@@ -39,6 +45,33 @@
         .save-perct{
             margin-left: 20px;
             color: red;
+        }
+
+        .counter-bar{
+            width: 100%;
+            padding: 2% 10%;
+        }
+
+        .qty-select{
+            display: inline-block;
+        }
+
+        .current{
+            top: 80%;
+            bottom: auto;
+            left: 50%;
+            transform: translateY(-50%) translateX(-50%);
+            font-size: 35.7143px;
+            position: absolute;
+            color: #bbb;
+            font-weight: 100;
+            line-height: 1;
+        }
+
+        .progress-wrapper{
+            position: relative;
+            margin: 20px auto;
+            font-size: 40px;
         }
     }
 }

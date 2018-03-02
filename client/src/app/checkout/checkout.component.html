@@ -1,27 +1,42 @@
 <div class="container">
       <form #vouchForm="ngForm">
         <div class="form-group checkout-shipping col-md-8" >
-          <h1>Shipping Information</h1>
+          <h1><span class="badge">1</span>Shipping and pickup options</h1>
           <input [(ngModel)]="model.firstName" id="firstName" class="checkout-field" type="text" placeholder="First Name" name="firstName" required/>
-          <label for="firstName">First Name:</label>
+          <label for="firstName">First Name</label>
           <input [(ngModel)]="model.lastName" id="lastName" class="checkout-field" type="text" placeholder="Last Name" name="lastName" required/>
-          <label for="lastName">Last Name:</label>
+          <label for="lastName">Last Name</label>
           <input [(ngModel)]="model.email" id="email" class="checkout-field" type="text" placeholder="Email" name="email" required/>
-          <label for="address">Address:</label>
+          <label for="email">Email</label>
           <input [(ngModel)]="model.address" id="address" class="checkout-field" type="text" placeholder="Address" name="address" required/>
+          <label for="address">Address</label>
         </div>
         <div class="form-group checkout-billing col-md-8">
-          <h1>Billing Info</h1>
-          <label for="creditCard">Credit Card Number:</label>
-          <input id="creditCard" class="checkout-field" type="text" placeholder="Credit Card Number" name="creditCard" required/>
+          <h1><span class="badge">2</span>Enter payment method</h1>
+          <input [(ngModel)]="model.creditCard" id="creditCard" class="checkout-field" type="text" placeholder="Credit Card Number" name="creditCard" required />
+          <label for="creditCard">Credit Card Number</label>
+          <input id="cvc" class="checkout-field" type="text" placeholder="CVC"/>
+          <label for="cvc">CVC</label>
+          <input id="expirationDate" class="checkout-field" type="text" placeholder="03/02/2020"/>
+          <label for="expirationDate">Expiration Date</label>
         </div>
         <div class="form-group checkout-vouch col-md-4">
           <h1>Vouch Section</h1>
+            <label for="quantity">Qty:</label>
             <select class="form-control" id="quantity" name="quantity" >
               <option *ngFor="let number of numbers" [value]="number">{{number}}</option>
             </select>
-            Total:
-            <button type="submit" class="btn btn-success">Vouch</button>
+            <div style="text-align:left">
+              <p><input name="group1" type="radio" id="buyAnyway" />
+              <label for="buyAnyway">Buy anyway</label></p>
+              <p>Price:</p>
+            </div>
+            <div style="text-align:left">
+              <p><input name="group2" type="radio" id="buyWithVouch" />
+              <label for="buyWithVouch">Buy only with vouch</label></p>
+              <p>Price:</p>
+            </div>
+            <button type="submit" class="btn btn-success">Buy!!</button>
         </div>
       
       </form>
