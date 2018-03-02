@@ -7,8 +7,16 @@ export class ItemService {
   constructor(private http: HttpClient) {
   }
 
-  getItemById(){
-    return this.http.get<Item>('http://localhost:3000/api/getItemById/55500575');
+  getItemById(id){
+    // const url = ``
+    return this.http.get<Item>(`http://localhost:3000/api/getItemById/${id}`);
   }
 
+  getAllItems(){
+    return this.http.get<Item[]>('http://localhost:3000/api/getAllItems');
+  }
+
+  getAllItemsInfo(){
+
+  }
 }
