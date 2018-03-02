@@ -14,6 +14,7 @@ var mongoose = require('mongoose'),
  */
 exports.findAllItems = function(req, res) {
     console.log("Inside getItems ");
+    let promiseArr = [];
     try {
         console.log(req.body);
         var item = new ItemSchema(req.body);
@@ -23,9 +24,7 @@ exports.findAllItems = function(req, res) {
             function(err, listItems){
                 if (err) return res.send(500, { error: err });
                 console.log(listItems);
-                var itemResp = {};
                 listItems.forEach(function(item) {
-
                   var itemCount = 0;
                   var validVoucher;
                   console.log(item.id);
@@ -49,15 +48,14 @@ exports.findAllItems = function(req, res) {
                           }
                         );
                         item.vouchQty = itemCount;
+                        response.push(item);
                       });
-                      console.log(item);
+                      console.log(response);
 
-                      console.console.log(itemCount);
-                      itemResp[item] = item;
-                      response.push(itemResp);
                     });
-                    return res.jsonp(response);
+
                 });
+
             });
     }
     catch(error) {
