@@ -12,7 +12,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { ItemService } from './item-detail/item.service';
 import {CheckoutComponent} from './checkout/checkout.component';
 import {FormsModule} from '@angular/forms'
-
+import {CheckoutService} from './checkout/checkout.service';
 
 
 
@@ -31,7 +31,7 @@ import {FormsModule} from '@angular/forms'
     ShareModule.forRoot()
   ],
   schemas: [ NO_ERRORS_SCHEMA ],
-  providers: [ItemService],
+  providers: [ItemService,CheckoutService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
