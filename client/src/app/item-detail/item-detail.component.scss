@@ -1,0 +1,44 @@
+.item-detail{
+    .item-card{
+        padding-left: 40px;
+        padding-top: 50px;
+
+        .row{
+            width: 100%;
+            margin-left: 0px;
+            .about-item{
+                font-weight: bold;
+            }
+        }
+    }
+
+    .cart-card{
+        padding-top: 100px;
+        padding-right: 30px;
+
+        .timer{
+            width: 100%;
+            margin-left: 0px;
+            // padding-left: 20px;
+        }
+        .price-row{
+            padding: 20px;
+        
+        }
+        .disc-price{
+            font-weight: bold;
+            margin-left: 10px;
+            font-size: 30px;
+        }
+
+        .curr-price{
+            margin-left: 15px;
+            font-size: 0.8rem;
+        }
+
+        .save-perct{
+            margin-left: 20px;
+            color: red;
+        }
+    }
+}

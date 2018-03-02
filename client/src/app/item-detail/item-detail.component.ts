@@ -4,12 +4,14 @@ import { Item } from '../../model/item';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import 'rxjs/add/operator/switchMap';
 import { Observable } from 'rxjs/Observable';
+// import {NgbProgressbarConfig} from '@ng-bootstrap/ng-bootstrap';
+
 
 
 @Component({
   selector: 'app-item-detail',
   templateUrl: './item-detail.component.html',
-  styleUrls: ['./item-detail.component.css']
+  styleUrls: ['./item-detail.component.scss']
 })
 export class ItemDetailComponent implements OnInit {
   item: Item;
@@ -21,15 +23,12 @@ export class ItemDetailComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router ) { 
       // this.getItemById();
-      console.log(this.item$)
+      
   }
   ngOnInit() {
-    this.item$ = this.route.paramMap
-    .switchMap((params: ParamMap) => {
-      // (+) before `params.get()` turns the string into a number
-      this.id = +params.get('id');
-      console.log(this.id);
-      return this.itemService.getItemById(this.id);
+    this.route.params.subscribe( params =>{
+      this.id = params['id'];
+      this.getItemById();
     });
   }
 
@@ -40,8 +39,8 @@ export class ItemDetailComponent implements OnInit {
   getItemById(){
     console.log(this.id);
      this.itemService.getItemById(this.id).subscribe((data)=>{
-       console.log(data);
        this.item = data;
+       console.log(this.item);
      });
 
   }
