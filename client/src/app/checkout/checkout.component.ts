@@ -56,7 +56,9 @@ export class CheckoutComponent implements OnInit {
     console.log(this.model);
     this.checkoutService.createUser(this.model).subscribe((data)=>{
       console.log("Data:"+data._id);
-      this.checkoutService.vouch(data._id, this.vouch_id, this.model);
+      this.checkoutService.vouch(data._id, this.vouch_id, this.model).subscribe((data)=>{
+        console.log(data);
+      });
     });
   }
 }

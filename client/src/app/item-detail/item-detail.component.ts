@@ -63,7 +63,7 @@ export class ItemDetailComponent implements OnInit {
     console.log('Vouch qantity called');
     this.itemService.getVouchCount(this.id).subscribe(data =>{
       console.log(data);
-      this.item.vouch_qty = Number(data);
+      this.vouch_qty = Number(data);
       // this.vouch_qty =data;
       console.log(this.vouch_qty);
       this.subscribeToData();
