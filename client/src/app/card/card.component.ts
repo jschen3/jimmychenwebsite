@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Item} from './item'
+import {Item} from '../../model/item';
 import {CardsService} from './cards.service';
 import { Router } from "@angular/router";   
 
