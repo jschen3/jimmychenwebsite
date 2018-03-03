@@ -34,17 +34,17 @@ exports.findItem = function(req, res) {
                       itemObj.voucher_expiration = voucher.voucher_expiration;
                       itemObj.vouch_id = voucher._id;
                       let totalCount = 0;
-                      // console.log(voucher._id);
+                      console.log(voucher._id);
                       DealSchema.find({"vouch_id": voucher._id}).exec(
                         function(err, deals) {
-                          // console.log("deals" + deals);
+                          console.log("deals" + deals.count);
                           for(let i = 0; i < deals.length; i++) {
                               var deal = deals[i];
                               totalCount+= deal.vouchQty;
                           }
 
                           itemObj.vouch_qty = totalCount;
-                          console.log(itemObj);
+                          //console.log(itemObj);
 
                           res.jsonp(itemObj);
                       });
