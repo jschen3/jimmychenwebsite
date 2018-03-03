@@ -49,7 +49,7 @@ export class CheckoutComponent implements OnInit {
        this.image_small = this.item.image_small;
        this.vouch_id= this.item.vouch_id;
        this.current_price_total = this.current_price * this.model.quantity;
-      this.vouch_price_total = this.vouch_price * this.model.quantity;
+       this.vouch_price_total = this.vouch_price * this.model.quantity;
      });
   }
   onSubmit(){

@@ -1,10 +1,10 @@
 export class Vouch{
-    vouchId:string;
-    userId:string;
-    quantity:number;
+    vouch_id:string;
+    user_id:string;
+    vouchQty:number;
     constructor(vouchId:string, userId:string, quantity:number){
-        this.vouchId=vouchId;
-        this.userId=userId;
-        this.quantity=quantity;
+        this.vouch_id=vouchId;
+        this.user_id=userId;
+        this.vouchQty=quantity;
     }
 }

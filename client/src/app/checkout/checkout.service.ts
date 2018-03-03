@@ -20,6 +20,7 @@ export class CheckoutService {
 
   vouch(userId:string, vouchId:string, checkoutDetails:CheckoutDetails){
     let vouch:Vouch = new Vouch(vouchId, userId, checkoutDetails.quantity);
+    console.log(vouch);
     return this.http.post('http://localhost:3000/api/userVouch', vouch).pipe(
       catchError(this.handleError));
   }
