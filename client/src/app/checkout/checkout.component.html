@@ -2,37 +2,65 @@
       <form (ngSubmit)="onSubmit()" #vouchForm="ngForm">
         <div class="form-group checkout-shipping col-md-8" >
           <h1><span class="badge">1</span>Shipping and pickup options</h1>
-          <input [(ngModel)]="model.firstName" id="firstName" class="checkout-field" type="text" placeholder="First Name" name="firstName" required/>
+          <input [(ngModel)]="model.firstName" id="firstName" class="checkout-field" type="text" placeholder="First Name" name="firstName" #firstName="ngModel" required/>
           <label for="firstName">First Name</label>
-          <input [(ngModel)]="model.lastName" id="lastName" class="checkout-field" type="text" placeholder="Last Name" name="lastName" required/>
+          <div [hidden]="firstName.pristine || firstName.valid"
+           class="alert alert-danger">
+           First Name is required
+          </div>
+          <input [(ngModel)]="model.lastName" id="lastName" class="checkout-field" type="text" placeholder="Last Name" #lastName="ngModel"name="lastName" required/>
           <label for="lastName">Last Name</label>
-          <input [(ngModel)]="model.email" id="email" class="checkout-field" type="text" placeholder="Email" name="email" required/>
+          <div [hidden]="lastName.pristine || lastName.valid"
+           class="alert alert-danger" >
+           Last Name is required
+          </div>
+          <input [(ngModel)]="model.email" id="email" class="checkout-field" type="text" placeholder="Email" name="email" required #email="ngModel" />
           <label for="email">Email</label>
-          <input [(ngModel)]="model.address" id="address" class="checkout-field" type="text" placeholder="Address" name="address" required/>
+          <div [hidden]="email.pristine || email.valid"
+           class="alert alert-danger" >
+           Email is required
+          </div>
+          <input [(ngModel)]="model.address" id="address" class="checkout-field" type="text" placeholder="Address" name="address" required #address="ngModel" />
           <label for="address">Address</label>
+          <div [hidden]="address.pristine || address.valid"
+           class="alert alert-danger" >
+           Address is required
+          </div>
         </div>
         <div class="form-group checkout-billing col-md-8">
           <h1><span class="badge">2</span>Enter payment method</h1>
-          <input [(ngModel)]="model.creditCard" id="creditCard" class="checkout-field" type="text" placeholder="Credit Card Number" name="creditCard" required />
-          <label for="creditCard">Credit Card Number</label>
-          <input id="cvc" class="checkout-field" type="text" placeholder="CVC"/>
+          <input [(ngModel)]="model.creditCard" id="creditCard" class="checkout-field" type="text" placeholder="creditCard" name="creditCard" #creditCard="ngModel" required/>
+          <label for="creditCard">Credit Card</label>
+          <div [hidden]="creditCard.pristine || creditCard.valid"
+           class="alert alert-danger">
+           Credit Card is required
+          </div>
+          <input [(ngModel)]="model.cvc" id="cvc" class="checkout-field" type="text" placeholder="cvc" #cvc="ngModel" name="cvc" required/>
           <label for="cvc">CVC</label>
-          <input id="expirationDate" class="checkout-field" type="text" placeholder="03/02/2020"/>
+          <div [hidden]="cvc.pristine || cvc.valid"
+           class="alert alert-danger" >
+           CVC is required
+          </div>
+          <input [(ngModel)]="model.expirationDate" id="expirationDate" class="checkout-field" type="text" placeholder="Expiration Date" name="expirationDate" required #expirationDate="ngModel" />
           <label for="expirationDate">Expiration Date</label>
+          <div [hidden]="expirationDate.pristine || expirationDate.valid"
+           class="alert alert-danger" >
+           Expiration Date is required
+          </div>
         </div>
         <div class="form-group checkout-vouch col-md-4">
           <h1>Vouch Section</h1>
             <div style="text-align:left">
-              <p><input name="group1" type="radio" id="buyAnyway" />
+              <p><input name="group1" type="radio" id="buyAnyway" [(ngModel)] = "model.buyOptions" />
               <label for="buyAnyway">Buy anyway</label></p>
               <p>Price: {{current_price_total}}</p>
             </div>
             <div style="text-align:left">
-              <p><input name="group2" type="radio" id="buyWithVouch" />
+              <p><input name="group1" type="radio" id="buyWithVouch" checked  [(ngModel)] = "model.buyOptions"/>
               <label for="buyWithVouch">Buy only with vouch</label></p>
               <p>Price: {{vouch_price_total}}</p>
             </div>
-            <button type="submit" class="btn btn-success">Buy!!</button>
+            <button type="submit" class="btn btn-success" [disabled]="!vouchForm.valid">Buy!!</button>
         </div>
       
       </form>

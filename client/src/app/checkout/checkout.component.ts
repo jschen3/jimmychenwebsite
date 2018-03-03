@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, FormControl, Validators, FormGroup} from '@angular/forms';
 import {CheckoutDetails} from '../../model/checkout-details';
 import {Item} from '../../model/item'
 import { Observable } from 'rxjs/Observable';
@@ -11,6 +11,7 @@ import {CheckoutService} from './checkout.service';
   styleUrls: ['./checkout.component.scss']
 })
 export class CheckoutComponent implements OnInit {
+  checkoutForm: FormGroup;
   model:CheckoutDetails = new CheckoutDetails();
   item: Item;
   id: number;
