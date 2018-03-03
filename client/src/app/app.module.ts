@@ -19,12 +19,12 @@ import {CheckoutComponent} from './checkout/checkout.component';
 import {FormsModule} from '@angular/forms'
 import {CheckoutService} from './checkout/checkout.service';
 
-
+import {CountDown} from "ng2-date-countdown";
 
 @NgModule({
   declarations: [
     AppComponent, CardsContainer,
-    ItemDetailComponent,CheckoutComponent
+    ItemDetailComponent,CheckoutComponent,CountDown
   ],
   imports: [
     BrowserModule,
@@ -36,7 +36,8 @@ import {CheckoutService} from './checkout/checkout.service';
     NgbModule.forRoot(),
     FormsModule,
     ShareModule.forRoot(),
-    RoundProgressModule
+    RoundProgressModule,
+    
   ],
   schemas: [ NO_ERRORS_SCHEMA ],
   providers: [ItemService,CheckoutService],

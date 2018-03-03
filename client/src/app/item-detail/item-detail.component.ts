@@ -3,6 +3,7 @@ import {ItemService} from './item.service';
 import { Item } from '../../model/item';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import 'rxjs/add/operator/switchMap';
+import { DatePipe } from '@angular/common';
 // import { Observable } from 'rxjs/Observable';
 import 'rxjs/Rx';
 import {Observable} from 'rxjs/Rx';
@@ -12,7 +13,8 @@ import { ShareButtons } from '@ngx-share/core';
 @Component({
   selector: 'app-item-detail',
   templateUrl: './item-detail.component.html',
-  styleUrls: ['./item-detail.component.scss']
+  styleUrls: ['./item-detail.component.scss'],
+  providers:[DatePipe]
 })
 export class ItemDetailComponent implements OnInit {
   item: Item;
@@ -20,16 +22,21 @@ export class ItemDetailComponent implements OnInit {
   vouch_qty: number;
   private sub: any;
   private poll: any;
+  expiry: string;
   item$: Observable<Item>;
   vouchQty: number[] = [1,2,3,4,5,6,7,8,9,10];
   buyQty: number[] = [1,2,3,4,5,6,7,8,9,10];
   selectedVouchQty: number = 1;
   selectedBuyQty: number = 1;
+  text: any = { Days: "Days", Hours: "Hours",
+     Minutes: "Mins", Seconds: "Sec"};
+
 
   constructor(private itemService:ItemService,
     private route: ActivatedRoute,
     public share: ShareButtons,
-    private router: Router,) {
+    private router: Router,
+    private datePipe: DatePipe) {
       // this.getItemById();
   }
   ngOnInit() {
@@ -55,6 +62,7 @@ export class ItemDetailComponent implements OnInit {
      this.itemService.getItemById(this.id).subscribe((data)=>{
        this.item = data;
        this.vouch_qty = this.item.vouch_qty;
+       this.expiry = this.datePipe.transform(this.item.voucher_expiration, 'yyyy-MM-dd');
        console.log(this.item);
      });
   }

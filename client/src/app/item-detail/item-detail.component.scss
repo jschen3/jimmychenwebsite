@@ -73,5 +73,24 @@
             margin: 20px auto;
             font-size: 40px;
         }
+
+       /deep/  .countdown{
+            .measurements{
+                margin-right: 10px;
+                .measurements-number{
+                    display: inline-block;
+                    padding: 0 2px;
+                    width: 32px;
+                    height: 35px;
+                    line-height: 35px;
+                    box-sizing: initial;
+                    background: gray;
+                    color: white;
+                    box-shadow:  0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+                    border-radius: 4px;
+                }
+            }
+            
+        }
     }
 }
