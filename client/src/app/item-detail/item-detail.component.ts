@@ -30,6 +30,7 @@ export class ItemDetailComponent implements OnInit {
   selectedBuyQty: number = 1;
   text: any = { Days: "Days", Hours: "Hours",
      Minutes: "Mins", Seconds: "Sec"};
+  savePerct: number;
 
 
   constructor(private itemService:ItemService,
@@ -63,7 +64,10 @@ export class ItemDetailComponent implements OnInit {
        this.item = data;
        this.vouch_qty = this.item.vouch_qty;
        this.expiry = this.datePipe.transform(this.item.voucher_expiration, 'yyyy-MM-dd');
+       this.savePerct = 100- (Number(this.item.vouch_price)/Number(this.item.current_price) * 100);
+       
        console.log(this.item);
+       console.log(this.savePerct);
      });
   }
 

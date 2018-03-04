@@ -18,7 +18,7 @@
   </div>
   <div class="col-md-4 cart-card">
     <div class="row cart-body z-depth-1">
-      <div class="price-row"><span class="disc-price text-left">${{item.vouch_price}}</span>  <span class="curr-price">Orig. price ${{item.current_price}}</span>  <span class="save-perct">save 10%</span> </div>
+      <div class="price-row"><span class="disc-price text-left">${{item.vouch_price}}</span>  <span class="curr-price">Orig. price ${{item.current_price}}</span>  <span class="save-perct">save {{savePerct| number:'1.1-2'}}%</span> </div>
       <hr>
       <div class="progress-wrapper">
           <div class="current">{{vouch_qty}}/{{item.min_vouch}}</div>
@@ -29,14 +29,16 @@
       <div class="timer"><countdown [text]="text" units=" Days | Hours | Minutes | Seconds"  [end]="this.expiry"></countdown>
       </div>
       <div>
-        <p>Vouch now and get the item at the discounted price if 100% vouches are reached by the deadline</p>
+        <p>Vouch now and get the item at the discounted price if {{item.min_vouch}} vouches are reached by the deadline</p>
       </div>
        <div> <p class="qty-select">Qty: <select [(ngModel)]="selectedVouchQty">
           <option *ngFor="let q of vouchQty" [ngValue]="q">{{q}}</option>
        </select> </p>
        <button type="button" class="btn btn-warning btn-rounded" style="background-color:#ff941a;" (click)="changeRoute()"> Get the deal</button>
+       </div>
        <div>
           <!-- <share-buttons [theme]="'circles-dark'" [include]="['facebook']" [show]="14" [url]="'http://twitter.com/'"></share-buttons> -->
+          <p>Share this awesome deal with your friends and increase your chances of getting the discount</p>
           <button shareButton="twitter" [style.backgroundColor]="share.prop.twitter.color">
               <i [class]="share.prop.twitter.icon"></i>
             </button>
@@ -56,7 +58,7 @@
               <i [class]="share.prop.pinterest.icon"></i>
             </button>
         </div>
-      </div>
+     
        <hr>
        <div class="text-center"><p >Don't want to wait till the deal closes. Buy now for original price</p></div>
        <div><p class="qty-select">Qty: <select [(ngModel)]="selectedBuyQty">
