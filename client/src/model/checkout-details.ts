@@ -7,5 +7,6 @@ export class CheckoutDetails {
     cvc:string;
     expirationDate:string;
     quantity:number;
+    buyOptions:boolean;
     constructor(){}
 }

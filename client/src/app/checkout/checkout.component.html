@@ -61,10 +61,10 @@
                 <div class="timer"><countdown [text]="text" units=" Days | Hours | Minutes | Seconds"  [end]="this.expiry"></countdown>
                 </div>
                 <div style="text-align:left;width: 100%; padding-left: 20px; margin-top: 10px; ">
-                    <p><input name="group1" type="radio" id="buyAnyway" [(ngModel)] = "model.buyOptions" />
+                    <p><input name="buyOptions" type="radio" id="buyAnyway" [(ngModel)] = "model.buyOptions" [value]="0" />
                     <label for="buyAnyway" style="display: initial;font-size: 14px;">Buy at original price ${{current_price}}, if the required vouches are not reached</label></p>
                  
-                    <p><input name="group1" type="radio" id="buyWithVouch" checked  [(ngModel)] = "model.buyOptions"/>
+                    <p><input name="buyOptions" type="radio" id="buyWithVouch" [(ngModel)] = "model.buyOptions" [value]="1" checked/>
                     <label for="buyWithVouch" style="font-size: 14px;">Buy only if the discount is acheived</label></p>
                   </div>
       
