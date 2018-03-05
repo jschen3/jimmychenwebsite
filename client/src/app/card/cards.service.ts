@@ -11,14 +11,18 @@ export class CardsService{
 
 	getAllItemsInfo(){
 		var self = this;
-		console.log(this.arr);
-		console.log("All Items Info");
 		this.itemService.getAllItems().subscribe(items=>{
 			items.forEach((item)=>{
-				console.log(item.id);
-
 				this.itemService.getItemById(item.id).subscribe(item=> {
 					console.log(item);
+					var today = new Date();
+					var daysLeft = Math.round((new Date(item.voucher_expiration).getTime() - today.getTime())/(60*60*24*1000));
+					if (daysLeft<=1){
+						item.days_left_text = "1 day left";
+					}
+					else{
+						item.days_left_text = daysLeft + " days left";
+					}
 					self.arr.push(item);
 				})
 			});

@@ -47,7 +47,7 @@
                     <div>
                     <p class="vouches">{{card.vouch_qty}}/{{card.min_vouch}}</p>
                     </div>
-                    <button type="button" class="btn btn-primary btn-rounded" (click)="changeRoute(card.id)"> PowerVouch</button>
+                    <a class="btn btn-primary btn-rounded" (click)="changeRoute(card.id)">{{card.days_left_text}}</a>
         
                 </div>
             </div>

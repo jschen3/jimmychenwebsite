@@ -13,11 +13,12 @@ export class CardsContainer implements OnInit{
     cards:Item[];
     constructor(private cardService:CardsService,
     private router:Router){
-    console.log("Hello");
+    //console.log("Hello");
       this.cardService.getAllItemsInfo();
     }
     ngOnInit(){
         this.cards=this.cardService.getItems();
+        console.log(this.cards);
     }
 
     changeRoute(id: string) {

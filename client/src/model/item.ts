@@ -10,4 +10,5 @@ export interface Item {
     vouch_qty: number,
     voucher_expiration: Date
     vouch_id: string;
+    days_left_text: string;
   }
