@@ -45,10 +45,11 @@
                     <div class="float-left dealPrice ">{{card.vouch_price}}</div>
                     <p class="currentPrice">{{card.current_price}}</p>
                     <div>
-                    <p class="vouches">{{card.vouch_qty}}/{{card.min_vouch}}</p>
+                            <p style="margin-bottom:0px; padding-top:10px;"><ngb-progressbar type="success"  [value]="card.vouch_qty" [max]="card.min_vouch"></ngb-progressbar></p>
+                            <p style="margin-bottom:0px;">{{card.vouch_qty}}/{{card.min_vouch}}</p>
                     </div>
+                   
                     <a class="btn btn-primary btn-rounded" (click)="changeRoute(card.id)">{{card.days_left_text}}</a>
-        
                 </div>
             </div>
             <!--/.Card content-->

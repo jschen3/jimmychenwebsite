@@ -3,7 +3,7 @@
     padding-top: 10px;
 
     .card-body{
-        p{
+        .card-title, .currentPrice{
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
@@ -21,6 +21,13 @@
             .vouches{
                 width: 100%;
                 margin: 0px;
+            }
+
+         /deep/   .progress{
+                margin: 0px;
+                .progress-bar {
+                    height: 100%;
+                }
             }
         }
     }
