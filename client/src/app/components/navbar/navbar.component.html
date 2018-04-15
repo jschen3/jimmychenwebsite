@@ -1,0 +1,15 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a *ngIf="navbar.brand" class="navbar-brand" href="#"><img src="{{navbar.brand}}"/></a>
+    <div *ngIf="navbar.title" class="navbar-title">{{navbar.title}}</div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div *ngIf="navbar.text" class="navbar-text">{{navbar.text}}</div>
+    <div class="collapse navbar-collapse" id="navbarContent">
+        <ul class="navbar-nav">
+            <li class="nav-item" *ngFor="let pageLink of navbar.pageLinks">
+                <a class="nav-link" href="{{pageLink.url}}">{{pageLink.text}}</a>   
+            </li>
+        </ul>
+    </div>
+</nav>

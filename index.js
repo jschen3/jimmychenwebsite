@@ -2,12 +2,6 @@ var express = require('express');
 var app = express();
 var createUser = require('./controllers/createUser');
 var createItem = require('./controllers/createItem');
-var createVoucher = require('./controllers/createVoucher');
-var userVouch = require('./controllers/userVouch');
-var getItemsByVoucherExpiry = require('./controllers/getItemsByExpiry');
-var getItemById = require('./controllers/getItem');
-var getCount = require('./controllers/getCount');
-var getAllItems = require('./controllers/getAllItems');
 
 var mongoose = require('mongoose');
 var mongoDB = 'mongodb://10.65.98.238:27017/powervouch';
@@ -48,27 +42,6 @@ app.post('/api/createItem', function (req, res) {
 app.post('/api/createVoucher', function (req, res) {
     console.log(req.body);
     createVoucher.create(req, res);
-});
-app.post('/api/userVouch', function (req, res) {
-    console.log(req.body);
-    userVouch.create(req, res);
-});
-
-app.get('/api/getItemsByVoucherExpiry', function (req, res) {
-    getItemsByVoucherExpiry.find(req, res);
- });
-
-app.get('/api/getItemById/:item_id', function (req, res) {
-    getItemById.findItem(req, res);
-});
-
-app.get('/api/getAllItems', function (req, res) {
-    getAllItems.findAllItems(req, res);
-
-});
-
-app.get('/api/getCount/:item_id', function (req, res) {
-    getCount.getCount(req, res);
 });
 
 // app.get('*', (req, res) => {
