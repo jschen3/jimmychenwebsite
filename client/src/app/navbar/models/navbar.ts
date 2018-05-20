@@ -4,7 +4,6 @@ export class Navbar{
         public title:string,
         public brand:string,
         public text:string,
-        public pageLinks:PageLink[],
-        public editMode:boolean
+        public pageLinks:PageLink[]
     ){}
 }

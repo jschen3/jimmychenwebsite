@@ -11,35 +11,23 @@ export class NavbarService{
 
     }
     getNavbar(): Navbar {
-        let navbar:Navbar = {
+        this.navbar = {
             title:"Jimmy Chen's Website",
-            text:"",
-            brand:"",
+            text:null,
+            brand:null,
             pageLinks:[
                    {"url":"/home","text":"Home"},
                    {"url":"/tech","text":"Tech"},
                    {"url":"/life","text":"Life"},
                    {"url":"/diary","text":"Diary"},
                    {"url":"/projects","text":"Projects"},
-                   {"url":"/aboutme", "text":"About me"}],
-            editMode:false  
+                   {"url":"/aboutme", "text":"About me"}]
         };
-        return navbar;
+        return this.navbar;
         //this.callNavbarUrl().then(navbar=>{this.navbar=navbar});
     }
-    public addLink(link:PageLink){
-        this.navbar.pageLinks.concat(link);
-        //this.updateNavbar(this.navbar).then(navbar=>{this.navbar=navbar});
-    }
-    public editText(text:string){
-        this.navbar.text=text;
-        //this.updateNavbar(this.navbar).then(navbar=>{this.navbar=navbar});
-    }
-    public editTitle(title:string){
-        this.navbar.title=title;
-        //this.updateNavbar(this.navbar).then(navbar=>{this.navbar=navbar});
-    }
-    private updateNavbar(navbar:Navbar){
+
+    public updateNavbar(navbar:Navbar){
         return this.http.post<Navbar>(this.updateNavbarUrl, this.navbar);
     }
     private callNavbarUrl(){
