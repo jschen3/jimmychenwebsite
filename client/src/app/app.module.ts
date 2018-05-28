@@ -10,17 +10,17 @@ import { NavbarService } from './navbar/navbar.service';
 import {CommonModule} from '@angular/common';
 import { EditNavbarComponent } from './navbar/edit.navbar.component';
 import {AceEditorModule} from 'ng2-ace-editor';
-import { PieceImageComponent } from './piece.image/piece.image.component';
+import { PiecePictureComponent } from './piece.picture/piece.picture.component';
 import { PieceTextComponent } from './piece.text/piece.text.component';
 import { PieceLinkComponent } from './piece.link/piece.link.component';
-import { PieceHeadingComponent } from './piece.heading/piece.heading.component';
 import {PolyComponent} from './poly/poly.component'
 import { PieceComponent } from './piece/piece.component';
 import { Poly } from './poly/models/poly';
+import {Piece} from './piece/models/piece';
 import { PolyService } from './poly/poly.service';
 @NgModule({
   declarations: [
-    AppComponent, NavbarComponent, EditNavbarComponent, PieceImageComponent, PieceTextComponent, PieceLinkComponent, PieceHeadingComponent,PolyComponent, PieceComponent],
+    AppComponent, NavbarComponent, EditNavbarComponent, PiecePictureComponent, PieceTextComponent, PieceLinkComponent,PolyComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -33,6 +33,6 @@ import { PolyService } from './poly/poly.service';
   ],
   schemas: [ NO_ERRORS_SCHEMA ],
   providers: [NavbarService, PolyService],
-  bootstrap: [AppComponent, NavbarComponent, EditNavbarComponent, PolyComponent, PieceComponent]
+  bootstrap: [AppComponent, NavbarComponent, EditNavbarComponent, PolyComponent, PiecePictureComponent, PieceTextComponent, PieceLinkComponent]
 })
 export class AppModule { }

@@ -4,12 +4,14 @@ import { PieceInterface } from '../piece/piece.interface';
 import { PieceComponent } from '../piece/piece.component';
 
 @Component({
-  selector: 'piece.link',
-  templateUrl: './piece.link.component.html',
-  styleUrls: ['./piece.link.component.scss']
+  selector: 'piece.picture',
+  templateUrl: './piece.picture.component.html',
+  styleUrls: ['./piece.picture.component.scss']
 })
-export class PieceLinkComponent implements PieceComponent {
+export class PiecePictureComponent implements PieceComponent {
   @Input() piece:Piece;
   constructor() { }
+
+ 
 
 }

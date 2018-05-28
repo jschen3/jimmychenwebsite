@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {NavbarService} from './navbar.service';
-import {Navbar} from './models/Navbar';
+import {Navbar} from './models/navbar';
 @Component({
     selector:'navbar-component',
     templateUrl:'navbar.component.html',

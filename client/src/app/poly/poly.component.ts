@@ -9,17 +9,17 @@ import { Piece } from '../piece/models/piece';
   styleUrls: ['./poly.component.scss']
 })
 export class PolyComponent implements OnInit {
-  @ViewChild('poly') polyViewContainerRef:ViewContainerRef;
+  @ViewChild('poly', { read: ViewContainerRef }) polyViewContainerRef:ViewContainerRef;
   poly:Poly;
   constructor(private polyService:PolyService, public pieceComponentFactoryResolver:ComponentFactoryResolver) { }
 
   ngOnInit() {
     this.poly = this.polyService.getPoly();
-    
-    for(let piece in this.poly.pieces){
-      let pieceFactory = this.pieceComponentFactoryResolver.resolveComponentFactory(PieceComponent);
+    let pieceComponents = this.polyService.getPieceComponents(this.poly);
+    for(let piece of pieceComponents){
+      let pieceFactory = this.pieceComponentFactoryResolver.resolveComponentFactory(piece.component);
       let pieceComponent = this.polyViewContainerRef.createComponent(pieceFactory);
-      pieceComponent.instance.piece = JSON.parse(piece) as Piece;
+      pieceComponent.instance.piece = piece.piece;
 
     }
   }

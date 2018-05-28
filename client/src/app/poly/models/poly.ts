@@ -1,4 +1,6 @@
 import {Piece} from '../../piece/models/piece';
+import { PieceComponent } from '../../piece/piece.component';
+import { PieceInterface } from '../../piece/piece.interface';
 export class Poly{
     constructor(
         public name:string,
